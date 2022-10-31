@@ -1,0 +1,32 @@
+- name: copy file to remote server
+  hosts: all:
+  become: yes
+  tasks: 
+    
+    - name: copy file
+      copy:
+        src: /usr/src/data/index.html
+        dest: /opt/data
+        
+
+# How to create inventory file
+stapp01 ansible_host=172.16.238.10 ansible_ssh_pass=Ir0nM@n  ansible_user=tony
+stapp02 ansible_host=172.16.238.11 ansible_ssh_pass=Am3ric@  ansible_user=steve
+stapp03 ansible_host=172.16.238.12 ansible_ssh_pass=BigGr33n  ansible_user=banner
+
+
+# commands to run 
+# ansible-playbook --syntax-check playbook.yml  -i inventory 
+# ansible-playbook   playbook.yml  -i inventory 
+
+
+## creating file using ansible playbook
+- name: creating file
+  hosts: stapp02
+  become: yes
+  tasks: 
+    
+    - name: create empty file
+      file:
+        path: /tmp/file.txt
+        state: touch

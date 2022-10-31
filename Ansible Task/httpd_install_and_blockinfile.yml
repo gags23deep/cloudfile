@@ -1,0 +1,25 @@
+- name: Setup Httpd 
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install latest version of httpd and php
+      package:
+        name: httpd
+        state: latest                
+    - name: Start and enable service httpd
+      service:
+        name: httpd
+        state: started
+        enable: yes  
+    - name: Create index.html file 
+      blockinfile:
+        path: /var/www/html/index.html
+        create: yes
+        block: |
+          Welcome to XfusionCorp!
+          This is Nautilus sample file, created using Ansible!
+          Please do not modify this file manually!      
+
+        owner: apache
+        group: apache
+        mode: '0744

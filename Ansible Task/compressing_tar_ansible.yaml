@@ -1,0 +1,53 @@
+- name: Compress directory on app server1
+  user: tony
+  hosts: stapp01
+  become: yes
+  tasks:
+   - name: Compress Directory contents
+     archive:
+       path: /usr/src/data/
+       dest: /opt/data/ecommerce.tar.gz
+       format: gz
+   - name: changing file permission
+     file:
+       path: /opt/data/ecommerce.tar.gz
+       owner: tony
+       group: tony
+
+
+
+- name: Compress directory on app server2
+  user: steve
+  hosts: stapp02
+  become: yes
+  tasks:
+   - name: Compress Directory contents
+     archive:
+       path: /usr/src/data/
+       dest: /opt/data/ecommerce.tar.gz
+       format: gz
+   - name: changing file permission
+     file:
+       path: /opt/data/ecommerce.tar.gz
+       owner: steve
+       group: steve    
+       
+
+- name: Compress directory on app server3
+  user: banner
+  hosts: stapp03
+  become: yes
+  tasks:
+   - name: Compress Directory contents
+     archive:
+       path: /usr/src/data/
+       dest: /opt/data/ecommerce.tar.gz
+       format: gz
+   - name: changing file permission
+     file:
+       path: /opt/data/ecommerce.tar.gz
+       owner: banner
+       group: banner  -i
+    
+
+   

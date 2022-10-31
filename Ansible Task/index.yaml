@@ -1,0 +1,38 @@
+# name: Insert/Update "Match User" configuration block in /etc/ssh/sshd_config
+# ansible.builtin.blockinfile:
+#   path: /root/facts.txt
+#   create: yes
+#   block: |
+#     Ansible managed node IP is ansible_facts["all_ipv4_addresses"]
+
+- name: Setup Httpd 
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create facts.txt file 
+      ansible.builtin.blockinfile:
+      path: /root/facts.txt
+      create: yes
+      block: |
+        Ansible managed node IP is ansible_facts["all_ipv4_addresses"]      
+    - name: Install latest version of httpd and php
+      package:
+        name:
+          - httpd
+        state: latest    
+    - name: Create the new DocumentRoot directory if it does not exist
+      file:
+        path: /var/www/html/index.html
+        state: directory
+        owner: apache
+        group: apache
+    - name: Copy facts.txt to index.html
+      template:
+        src: /root/facts.txt
+        dest: /var/www/html/index.html
+        owner: apache
+        group: apache
+    - name: Start and enable service httpd
+      service:
+        name: httpd
+        state: started
