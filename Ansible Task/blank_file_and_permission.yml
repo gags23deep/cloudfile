@@ -1,0 +1,12 @@
+- name: Creating empty file and permission
+  hosts: all
+  become: yes
+  tasks:      
+    - name: Create the new DocumentRoot directory if it does not exist
+      file:
+        path: /tmp/data.txt
+        state: touch
+        mode: "0777"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+ 
