@@ -11,7 +11,6 @@ node  'stapp03.stratos.xfusioncorp.com' {
   include creatfile
 }
 
-puppet parser validate vfstpd.pp
+# puppet parser validate vfstpd.pp
 
-Then go to agent and run "puppet agent -tv"
-SDFD
+# Then go to agent and run "puppet agent -tv"
