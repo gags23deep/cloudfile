@@ -22,6 +22,6 @@ node  'stapp02.stratos.xfusioncorp.com' {
 
 }
 
-puppet parser validate vfstpd.pp
+# puppet parser validate vfstpd.pp
 
-Then go to agent and run "puppet agent -tv"
+# Then go to agent and run "puppet agent -tv"
