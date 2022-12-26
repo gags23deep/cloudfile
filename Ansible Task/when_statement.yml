@@ -1,0 +1,53 @@
+- name: How to use when conditional statement
+  hosts: all
+  become: yes
+  tasks:
+    - name: Copy blog.txt to App server 1
+      copy:
+
+        src: /usr/src/devops/blog.txt
+
+        dest: /opt/devops/blog.txt
+
+        owner: tony
+
+        group: tony
+
+        mode: '0655'
+
+      when: inventory_hostname == "stapp01"
+
+    - name: Copy story.txt to App server 2
+
+      copy:
+
+        src: /usr/src/devops/story.txt
+
+        dest: /opt/devops/story.txt
+
+        owner: steve
+
+        group: steve
+
+        mode: '0655'
+
+      when: inventory_hostname == "stapp02"
+
+    - name: Copy media.txt to App server 3
+
+      copy:
+
+        src: /usr/src/devops/media.txt
+
+        dest: /opt/devops/media.txt
+
+        owner: banner
+
+        group: banner
+
+        mode: '0655'
+
+      when: inventory_hostname == "stapp03"
+
+    
+
