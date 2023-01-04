@@ -69,4 +69,5 @@ class ssh_node1 {
 
 # puppet parser validate vfstpd.pp
 
-# Then go to agent and run "puppet agent -tv"
+# Then go to agent and run "puppet agent -tv" 
+# Note - Make sure you run the above as root user"
