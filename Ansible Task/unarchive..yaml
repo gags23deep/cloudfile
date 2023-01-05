@@ -1,0 +1,50 @@
+- name: How to use when conditional statement
+  hosts: all
+  become: yes
+  tasks:
+    - name: Unarchive file app server 1 
+      unarchive:
+
+        src: /usr/src/finance/xfusion.zip
+
+        dest: /opt/finance/
+
+        owner: tony
+
+        group: tony
+
+        mode: '0644'
+
+      when: inventory_hostname == "stapp01"
+
+    - name: Unarchive file on app server 2
+
+      unarchive:
+
+        src: /usr/src/finance/xfusion.zip
+
+        dest: /opt/finance/
+
+        owner: steve
+
+        group: steve
+
+        mode: '0644'
+
+      when: inventory_hostname == "stapp02"
+
+    - name: Unarchive file on app server 3
+
+      unarchive:
+
+        src: /usr/src/finance/xfusion.zip
+
+        dest: /opt/finance/
+
+        owner: banner
+
+        group: banner
+
+        mode: '0644'
+
+      when: inventory_hostname == "stapp03"
