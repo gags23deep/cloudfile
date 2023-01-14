@@ -1,5 +1,4 @@
-$public_key= "AAAAB3NzaC1yc2EAAAADAQABAAABAQDItzBH+uDqyR1xzm/IQJUE6u+9vn868hPN5tsyo0SUmdtWowfPaFy4h4yR6GXFgVkxmDR4EZp0QnW7vkW9PxhC+E//DE5AejM3Brlv+8fJ7DkBt/UXBn4TefwGSqD7UkjCEXaN7Kjrco+9LibjwRBXs0DiwtndFQgRly9uRRPcgf0xQbgOAN5Ur7u2uPTVEQ3vzeQlr7oqkBPONCyVM1Y9/1zn2b9ZseC3JJhNHdnBZYFytFZx6DGBzonkh4mZuib+0UeNJ3qh69EZ+idsVqvlfc5xUjE0mQwyl/nsnuRO2MjW8FwwPWDlvjPrD/j35YHMpZ9+9NYWCK/uUFEeIlSj"
-
+$public_key="AAAAB3NzaC1yc2EAAAADAQABAAABAQDk+5+ZCID6rRUS1DM71D7+VMxraBAx03Gh0ihhAssn+eVmpwwedVsEV6meG8YNxykLISc952p9SIQnz/XngicMnrK6B1O8Q6nCX28sbs33/kMFI7jXwr+lcPKJqSAKipKfnOqS2AeqaWW2Lkg3hnkXs5hq10sSYZaVdJLWUTqFkPzN+4fa/p6tRL9jLuBDmh35Fg4JnH0DYC+gCxGVu9NRfecMdFYmqhl6A7GUwrAZWLSlSt8Ucza5mHQysa+pFKEqFe0UuR3urd8TTEnEyr87rSb987Dmf0wwEQTRUp+BEpPFfIqtWARgKZSs5QtVdfOI6k05E20y/hfSp8Ct7+oF"
 class ssh_node1 {
 
    ssh_authorized_key { 'tony@stapp01':
@@ -60,7 +59,7 @@ class ssh_node1 {
 
  }
 
- node stapp03.stratos.xfusioncorp.com {
+ node stapp03.stratos.xfusioncorp.com { 
 
    include ssh_node3
 
@@ -70,4 +69,5 @@ class ssh_node1 {
 # puppet parser validate vfstpd.pp
 
 # Then go to agent and run "puppet agent -tv" 
-# Note - Make sure you run the above as root user"
+# Note - Make sure you run the above command i.e puppet agent -tv as root user"
+# Use "ssh-keygen -t rsa" command to generate new keys and then copy and paste key in public variable
