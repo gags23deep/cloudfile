@@ -1,0 +1,56 @@
+- name: How to use when conditional statement
+  hosts: all
+  become: yes
+  tasks:
+    - name: Create empty file blog.txt on app server1
+      file:
+        path: /opt/devops/blog.txt
+        state: touch
+        owner: root
+        group: root
+      when: inventory_hostname == "stapp01"
+
+    - name: Provide read permission using ACL module
+      acl:
+        path: /opt/devops/blog.txt
+        entity: tony
+        etype: group
+        permissions: r
+        state: present          
+        
+      when: inventory_hostname == "stapp01"
+
+    - name: Create empty file story.txt
+      file:
+        path: /opt/devops/story.txt
+        state: touch
+        owner: root
+        group: root
+      when: inventory_hostname == "stapp02"
+
+    - name: Provide read permission using ACL module
+      acl:
+        path: /opt/devops/story.txt
+        entity: steve
+        etype: user
+        permissions: rw
+        state: present      
+      when: inventory_hostname == "stapp02"
+
+    - name: Create empty file media.txt
+      file:
+        path: /opt/devops/media.txt
+        state: touch
+        owner: root
+        group: root
+      when: inventory_hostname == "stapp03"
+
+    - name: Provide read permission using ACL module
+      acl:
+        path: /opt/devops/media.txt
+        entity: banner
+        etype: group
+        permissions: rw
+        state: present     
+         
+      when: inventory_hostname == "stapp03"

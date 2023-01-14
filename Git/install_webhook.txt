@@ -1,0 +1,10 @@
+sudo yum install git -y 
+git config --global user.email "you@example.com"
+git config --global user.name "cameronmcnz"
+sudo mkdir -p /opt/ecommerce.git
+cd /opt/ecommerce.git
+
+
+# How to utilise hook
+Just copy the update script to hook folder inside the repository
+

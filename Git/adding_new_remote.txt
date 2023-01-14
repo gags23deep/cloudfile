@@ -1,0 +1,4 @@
+ git remote add dev_official /opt/xfusioncorp_official.git
+ git remote -v
+ git init #git initialize the new remote repo
+ git push -u dev_official master

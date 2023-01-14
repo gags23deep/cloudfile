@@ -1,0 +1,7 @@
+sudo yum install git
+sudo mkdir -p /opt/ecommerce.git
+cd /opt/ecommerce.git
+git init --bare
+This will create a new Git repository at /opt/ecommerce.git. The --bare flag indicates that this is a shared repository that is not meant to be checked out directly on the server.
+
+You can then add files and push them to the repository as you would with any other Git repository.
