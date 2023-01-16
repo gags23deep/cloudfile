@@ -19,11 +19,12 @@ metadata:
   name: mysql-pv-claim   
 spec:                              
   storageClassName: standard       
-  accessModes: ReadWriteOnce             
+  accessModes: 
+     - ReadWriteOnce
   resources:
     requests:
       storage: 250Mi 
----
+--- 
 apiVersion: v1                    
 kind: Service                      
 metadata:
