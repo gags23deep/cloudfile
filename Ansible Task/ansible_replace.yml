@@ -10,17 +10,17 @@
       when: inventory_hostname == "stapp01"
 
     - name: Replace Nautilus to kodkloud
-     replace:
-        path: /opt/data/story.txt
-        regexp: 'Nautilus'
-        replace: 'KodeKloud'
+      replace:
+          path: /opt/data/story.txt
+          regexp: 'Nautilus'
+          replace: 'KodeKloud'
       when: inventory_hostname == "stapp02"
 
     - name: Relace KodeKloud to xFusionCorp Industries
-     replace:
-        path: /opt/data/media.txt
-        regexp: 'KodeKloud'
-        replace: 'xFusionCorp Industries'
+      replace:
+          path: /opt/data/media.txt
+          regexp: 'KodeKloud'
+          replace: 'xFusionCorp Industries'
       when: inventory_hostname == "stapp03"
 
     
