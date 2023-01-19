@@ -38,8 +38,8 @@ data:
         include /etc/nginx/conf.d/*.conf;
 
         server {
-            listen       8095;
-            listen       [::]:8095;
+            listen       8099;
+            listen       [::]:8099;
             server_name  _;
             root         /var/www/html;
             index index.html index.htm index.php;
@@ -72,7 +72,7 @@ spec:
   - name: nginx-container
     image: nginx:latest
     ports:
-      - containerPort: 8095 
+      - containerPort: 8099
     volumeMounts:
     - name: nginx-config-volume
       mountPath: /etc/nginx/nginx.conf 
@@ -81,7 +81,7 @@ spec:
     - name: shared-files
       mountPath: /var/www/html   
   - name: php-fpm-container
-    image: php:7.0-fpm
+    image: php:7.2-fpm
     volumeMounts:
     - name: shared-files
       mountPath: /var/www/html    
@@ -105,7 +105,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 30012
-    targetPort: 8095
+  - port: 8099
+    targetPort: 8099
+    nodePort: 30012
   selector:
     app: nginx

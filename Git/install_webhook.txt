@@ -8,3 +8,7 @@ cd /opt/ecommerce.git
 # How to utilise hook
 Just copy the update script to hook folder inside the repository
 
+git push origin xfusioncorp_apps
+git checkout -b master
+git branch
+git push origin master # It should failed as per the question.

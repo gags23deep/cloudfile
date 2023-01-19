@@ -1,0 +1,14 @@
+## Assign and sign certificates for both master and agent node.
+
+
+Edit the hosts file on jump server and add alias "puppet"
+172.16.239.3    jump_host.stratos.xfusioncorp.com jump_host puppet
+172.16.238.3    jump_host.stratos.xfusioncorp.com jump_host puppet
+
+Copy above two line and paste it to the agent node i.e stapp02 server  hosts file.
+
+systemctl status puppetserver
+systemctl restart puppetserver
+puppetserver ca list --all
+puppetserver ca sign --all
+For validating that it is working use "puppet agent -tv"  on stapp02

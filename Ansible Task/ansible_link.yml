@@ -52,59 +52,59 @@
 
 hosts: stapp01, stapp02, stapp03
 
-  become: yes
+become: yes
 
-  tasks:
+tasks:
 
-    - name: Create the blog.txt on stapp01
+  - name: Create the blog.txt on stapp01
 
-      file:
+    file:
 
-        path: /opt/itadmin/blog.txt
+      path: /opt/itadmin/blog.txt
 
-        owner: tony
+      owner: tony
 
-        group: tony
+      group: tony
 
-        state: touch
+      state: touch
 
-      when: inventory_hostname == "stapp01"
+    when: inventory_hostname == "stapp01"
 
-    - name: Create the story.txt on stapp02
+  - name: Create the story.txt on stapp02
 
-      file:
+    file:
 
-        path: /opt/itadmin/story.txt
+      path: /opt/itadmin/story.txt
 
-        owner: steve
+      owner: steve
 
-        group: steve
+      group: steve
 
-        state: touch
+      state: touch
 
-      when: inventory_hostname == "stapp02"
+    when: inventory_hostname == "stapp02"
 
-    - name: Create the media.txt on stapp03
+  - name: Create the media.txt on stapp03
 
-      file:
+    file:
 
-        path: /opt/itadmin/media.txt
+      path: /opt/itadmin/media.txt
 
-        owner: banner
+      owner: banner
 
-        group: banner
+      group: banner
 
-        state: touch
+      state: touch
 
-      when: inventory_hostname == "stapp03"
+    when: inventory_hostname == "stapp03"
 
-    - name: Link /opt/itadmin directory
+  - name: Link /opt/itadmin directory
 
-      file:
+    file:
 
-        src: /opt/itadmin/
+      src: /opt/itadmin/
 
-        dest: /var/www/html
+      dest: /var/www/html
 
-        state: link
+      state: link
 
