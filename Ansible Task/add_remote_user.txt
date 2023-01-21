@@ -1,0 +1,2 @@
+#Adding user as the default user for all host.
+Edit the configuration file add line remote_user = user_name_request in the question. i.e add under the line #remote_user = root

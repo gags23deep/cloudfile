@@ -1,5 +1,5 @@
 ---
-
+## Add this line "This file was created using Ansible on {{ ansible_hostname }}" at the asked location in the file i.e /home/thor/ansible/role/httpd/templates/index.html.j2
 #task file for role/test
 
 - name: install the latest version of httpd
@@ -26,7 +26,7 @@
 
     dest: /var/www/html/index.html
 
-    mode: "0644"
+    mode: "0655"
 
     owner: "{{ ansible_user }}"
 

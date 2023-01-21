@@ -1,0 +1,14 @@
+# To set up autosign configuration on master server.
+#Add puppet in the /etc/hosts file " 172.16.238.3    jump_host.stratos.xfusioncorp.com jump_host puppet "
+#Create autosign.conf file & define all app server FQDN - vi /etc/puppetlabs/puppet/autosign.conf , and add the following line -
+jump_host.stratos.xfusioncorp.com
+
+stapp01.stratos.xfusioncorp.com
+
+stapp02.stratos.xfusioncorp.com
+
+stapp03.stratos.xfusioncorp.com
+
+
+# The restart the puppet server by using command " systemctl restart puppetesrver"
+
