@@ -1,4 +1,5 @@
  git remote add dev_official /opt/xfusioncorp_official.git
  git remote -v
- git init #git initialize the new remote repo
+ copy file from /tmp to /usr/src/kodekloudrepo/demo/
+ git init #git initialize the new remote repo in the abvoe directory i.e /usr/src/kodekloudrepo/demo/
  git push -u dev_official master

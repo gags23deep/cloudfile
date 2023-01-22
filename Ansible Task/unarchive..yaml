@@ -5,7 +5,7 @@
     - name: Unarchive file app server 1 
       unarchive:
 
-        src: /usr/src/finance/xfusion.zip
+        src: /usr/src/finance/datacenter.zip
 
         dest: /opt/finance/
 
@@ -13,7 +13,7 @@
 
         group: tony
 
-        mode: '0644'
+        mode: '0777'
 
       when: inventory_hostname == "stapp01"
 
@@ -21,7 +21,7 @@
 
       unarchive:
 
-        src: /usr/src/finance/xfusion.zip
+        src: /usr/src/finance/datacenter.zip
 
         dest: /opt/finance/
 
@@ -29,7 +29,7 @@
 
         group: steve
 
-        mode: '0644'
+        mode: '0777'
 
       when: inventory_hostname == "stapp02"
 
@@ -37,7 +37,7 @@
 
       unarchive:
 
-        src: /usr/src/finance/xfusion.zip
+        src: /usr/src/finance/datacenter.zip
 
         dest: /opt/finance/
 
@@ -45,6 +45,6 @@
 
         group: banner
 
-        mode: '0644'
+        mode: '0777'
 
       when: inventory_hostname == "stapp03"
